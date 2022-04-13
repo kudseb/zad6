@@ -20,15 +20,14 @@
             style="display: flex; flex-direction: column; align-items: center"
           >
             <label
-              >Wzorst
-              <input type="text" v-model="wzrost" placeholder="tytuł" />
+              >Wzorst w metrach
+              <input type="number" v-model="wzrost" />
             </label>
             <label>
               Masa ciala
-              <input type="text" v-model="masa" placeholder="imie" />
+              <input type="number" v-model="masa" />
             </label>
           </form>
-          <button @click="consoleBook()">placeholder</button>
           <p>{{bmi}}</p>
         </div>
       </div>
@@ -42,7 +41,13 @@
           masa: 0,
         };
       },
-      computed: {},
+      computed: {
+        bmi() {
+          return parseFloat(this.masa / Math.pow(this.wzrost, 2) || 0).toFixed(
+            2
+          );
+        },
+      },
     }).mount("#foo");
   </script>
 </html>

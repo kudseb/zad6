@@ -10,19 +10,20 @@
     <div id="foo">
       <p>Receipt</p>
       <p>-----------</p>
-      <p>{{product}}</p>
-      <p>{{unitPrice}} zł</p>
-      <p>{{amount}} zl</p>
-      <p>{{taxRate}}%</p>
+      <p>Product: {{product}}</p>
+      <p>Unit Price: {{unitPrice}} zł</p>
+      <p>Quantity: {{quantity}} zl</p>
+      <p>Amount: {{amount}} zl</p>
+      <p>VAT Tax rate: {{taxRate}}%</p>
       <p>-----------</p>
-      <p>{{total}} zl</p>
+      <p>Total : {{total}} zl</p>
     </div>
   </body>
   <script>
     Vue.createApp({
       data() {
         return {
-          product: "Product",
+          product: "book",
           unitPrice: 17,
           quantity: 3,
           taxRate: 23,

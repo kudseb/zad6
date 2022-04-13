@@ -20,12 +20,14 @@
           flex-direction: column;
           align-items: center;
           border: 1px solid black;
+          margin: 0 auto;
+          max-width: 500px;
         "
       >
         <p>{{name.toUpperCase()}}</p>
         <p>{{street}}</p>
         <p>{{postal}}</p>
-        <p>{{phone}}</p>
+        <p>tel. {{phone1}}{{phone2}}</p>
         <a :href="link">https://www.unikpol.pl</a>
       </div>
     </div>
@@ -37,7 +39,8 @@
           name: "unikpol s.a",
           street: "ulica kryta 5",
           postal: "02-114 Rawa Mazowiecka",
-          phone: "tel. 22 345 90 21, 888 213 992s",
+          phone1: "22 345 90 21",
+          phone2: "888 213 992s",
           link: "https://www.unikpol.pl",
         };
       },
