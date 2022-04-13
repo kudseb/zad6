@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Web Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="foo">
+      <div style="display: flex; flex-direction: column; align-items: center">
+        <form
+          style="display: flex; flex-direction: column; align-items: center"
+        >
+          <label
+            >Tytul
+            <input type="text" v-model="tytul" placeholder="tytuł" />
+          </label>
+          <label>
+            imie
+            <input type="text" v-model="imie" placeholder="imie" />
+          </label>
+          <label>
+            nazwisko
+            <input type="text" v-model="nazwisko" placeholder="nazwisko" />
+          </label>
+        </form>
+        <button @click="consoleBook()">Zapisz</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          tytul: "",
+          imie: "",
+          nazwisko: "",
+        };
+      },
+      methods: {
+        consoleBook() {
+          console.log(JSON.stringify(this.$data));
+        },
+      },
+    }).mount("#foo");
+  </script>
+</html>

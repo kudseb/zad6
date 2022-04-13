@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Web Page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body>
+    <div id="foo">
+      <p>Receipt</p>
+      <p>-----------</p>
+      <p>{{product}}</p>
+      <p>{{unitPrice}} zł</p>
+      <p>{{amount}} zl</p>
+      <p>{{taxRate}}%</p>
+      <p>-----------</p>
+      <p>{{total}} zl</p>
+    </div>
+  </body>
+  <script>
+    Vue.createApp({
+      data() {
+        return {
+          product: "Product",
+          unitPrice: 17,
+          quantity: 3,
+          taxRate: 23,
+          amount: 0,
+          total: 0,
+        };
+      },
+      methods: {
+        getAmount() {
+          return this.unitPrice * this.quantity;
+        },
+        getTotal() {
+          return this.amount * (this.taxRate / 100 + 1);
+        },
+      },
+      beforeMount() {
+        this.amount = this.getAmount();
+        this.total = this.getTotal();
+      },
+    }).mount("#foo");
+  </script>
+</html>
